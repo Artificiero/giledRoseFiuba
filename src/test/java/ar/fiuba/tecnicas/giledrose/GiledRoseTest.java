@@ -1,11 +1,11 @@
-package ar.fiuba.tecnicas.tp1.test;
+package test.java.ar.fiuba.tecnicas.giledrose;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import ar.fiuba.tecnicas.tp1.inventory.Inventory;
-import ar.fiuba.tecnicas.tp1.item.Item;
+import main.java.ar.fiuba.tecnicas.giledrose.Inventory;
+import main.java.ar.fiuba.tecnicas.giledrose.Item;
 
 public class GiledRoseTest {
 
