@@ -82,15 +82,15 @@ public class GiledRoseTest {
 
 	@Test
 	public void testSulfurasQualtyIsAlwaysTheSame() {
-		Item items[] = new Item[] { new Item(SULFURAS_ITEM, 10, 20) };
-		this.advanceADayAndAssertQuality(20, items);
+		Item items[] = new Item[] { new Item(SULFURAS_ITEM, 10, 80) };
+		this.advanceADayAndAssertQuality(80, items);
 	}
 
 	// Review: Si uno no indica que es cero desde un principio, se mantiene
 	// constante
 	@Test
 	public void testSulfurasSellInIsAlwaysCero() {
-		Item items[] = new Item[] { new Item(SULFURAS_ITEM, 0, 20) };
+		Item items[] = new Item[] { new Item(SULFURAS_ITEM, 0, 80) };
 		Inventory inventory = new Inventory(items);
 		inventory.updateQuality();
 		assertEquals(0, items[0].getSellIn());
