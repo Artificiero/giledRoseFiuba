@@ -1,6 +1,6 @@
 package main.java.ar.fiuba.tecnicas.giledrose;
 
-public class AgedBrie extends ItemWrapper{
+public class AgedBrie extends ItemWrapperVarQ{
 
 	//incrementa +1 su calidad mientras envejece
 	//pero una vez que SellIn es 0, decrementa de a 2
