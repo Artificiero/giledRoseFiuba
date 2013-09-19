@@ -1,16 +1,23 @@
 package main.java.ar.fiuba.tecnicas.giledrose;
 
 public class Inventory {
-    private Item[] items;
+    private ItemWrapper[] items;
+    
+    private void fillInventory(Item[] items){
+    	int i = 0;
+    	ItemFactory itemFact = new ItemFactory();
+    	for (Item item : items){
+    		this.items[i] = itemFact.createItemWrapper(item);
+    		i++;
+    	}	
+    }
 
     public Inventory(Item[] items) {
-        super();
-        this.items = items;
+    	this.fillInventory(items);
     }
 
     public Inventory() {
-        super();
-        items = new Item[]{
+        Item[] itemsN = new Item[]{
                 new Item("+5 Dexterity Vest", 10, 20),
                 new Item("Aged Brie", 2, 0),
                 new Item("Elixir of the Mongoose", 5, 7),
@@ -18,7 +25,7 @@ public class Inventory {
                 new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
                 new Item("Conjured Mana Cake", 3, 6)
         };
-
+        this.fillInventory(itemsN);
     }
 
     public void updateQuality() {

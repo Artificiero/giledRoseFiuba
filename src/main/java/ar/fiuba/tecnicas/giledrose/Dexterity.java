@@ -2,8 +2,8 @@ package main.java.ar.fiuba.tecnicas.giledrose;
 
 public class Dexterity extends ItemWrapperVarQ{
 	
-	public Dexterity( Item it ){
-		this.item = it;				
+	public Dexterity(Item item){
+		super(item);
 	}
 
 	@Override

@@ -6,6 +6,10 @@ public abstract class ItemWrapperVarQ extends ItemWrapper{
 	
 	protected abstract void updateQuality();
 	
+	ItemWrapperVarQ(Item item){
+		super(item);
+	}
+	
 	@Override
 	public void update(){
 		this.updateQuality();

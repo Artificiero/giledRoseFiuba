@@ -12,5 +12,9 @@ public abstract class ItemWrapper {
 	protected boolean isSellInPositive(){
 		return ( this.item.getSellIn() > 0);
 	}
+	
+	ItemWrapper(Item item){
+		this.item = item;
+	}
 
 }

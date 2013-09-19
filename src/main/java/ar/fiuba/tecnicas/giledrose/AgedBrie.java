@@ -13,5 +13,9 @@ public class AgedBrie extends ItemWrapperVarQ{
 			this.addToQuality(-2);				
 		}
 	}
+	
+	public AgedBrie(Item item){
+		super(item);
+	}
 
 }
