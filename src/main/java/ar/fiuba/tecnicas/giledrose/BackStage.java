@@ -10,8 +10,9 @@ public class BackStage extends ItemWrapperVarQ {
 	@Override
 	protected void updateQuality() {
 		if ( this.isSellInPositive()){
-			if ( this.item.getQuality() <= 10 ){
-				if ( this.item.getQuality() > 5){
+			if ( this.item.getSellIn() <= 10 ){
+				if ( this.item.getSellIn() > 5){
+					System.out.println("arriba de 5");
 					this.addToQuality(2);
 				} else {
 					this.addToQuality(3);
@@ -19,7 +20,6 @@ public class BackStage extends ItemWrapperVarQ {
 			} else {
 				this.addToQuality(1);			
 			}
-			
 		}else{
 			this.item.setQuality(0);
 		}
