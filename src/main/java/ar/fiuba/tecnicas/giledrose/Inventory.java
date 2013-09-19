@@ -1,14 +1,15 @@
 package main.java.ar.fiuba.tecnicas.giledrose;
 
+import java.util.ArrayList;
+
 public class Inventory {
-    private ItemWrapper[] items;
+    private ArrayList<ItemWrapper> items;
     
     private void fillInventory(Item[] items){
-    	int i = 0;
+    	this.items = new ArrayList<ItemWrapper>();
     	ItemFactory itemFact = new ItemFactory();
     	for (Item item : items){
-    		this.items[i] = itemFact.createItemWrapper(item);
-    		i++;
+    		this.items.add(itemFact.createItemWrapper(item));
     	}	
     }
 
@@ -29,55 +30,9 @@ public class Inventory {
     }
 
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) 
+        for ( ItemWrapper item : this.items) 
         {
-            if (items[i].getName() != "Aged Brie" && items[i].getName() != "Backstage passes to a TAFKAL80ETC concert") {
-                if (items[i].getQuality() > 0) {
-                    if (items[i].getName() != "Sulfuras, Hand of Ragnaros") {
-                        items[i].setQuality(items[i].getQuality() - 1);
-                    }
-                }
-            } else {
-                if (items[i].getQuality() < 50) {
-                    items[i].setQuality(items[i].getQuality() + 1);
-
-                    if (items[i].getName() == "Backstage passes to a TAFKAL80ETC concert") {
-                        if (items[i].getSellIn() < 11) {
-                            if (items[i].getQuality() < 50) {
-                                items[i].setQuality(items[i].getQuality() + 1);
-                            }
-                        }
-
-                        if (items[i].getSellIn() < 6) {
-                            if (items[i].getQuality() < 50) {
-                                items[i].setQuality(items[i].getQuality() + 1);
-                            }
-                        }
-                    }
-                }
-            }
-
-            if (items[i].getName() != "Sulfuras, Hand of Ragnaros") {
-                items[i].setSellIn(items[i].getSellIn() - 1);
-            }
-
-            if (items[i].getSellIn() < 0) {
-                if (items[i].getName() != "Aged Brie") {
-                    if (items[i].getName() != "Backstage passes to a TAFKAL80ETC concert") {
-                        if (items[i].getQuality() > 0) {
-                            if (items[i].getName() != "Sulfuras, Hand of Ragnaros") {
-                                items[i].setQuality(items[i].getQuality() - 1);
-                            }
-                        }
-                    } else {
-                        items[i].setQuality(items[i].getQuality() - items[i].getQuality());
-                    }
-                } else {
-                    if (items[i].getQuality() < 50) {
-                        items[i].setQuality(items[i].getQuality() + 1);
-                    }
-                }
-            }
+        	item.update();       
         }
     }
 }
